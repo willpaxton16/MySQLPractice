@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1 class="text-center">Bowlers</h1>
+<div class="container">
+    <div class="row">
+        <div class="column col-2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="1">Marlins</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="2">Sharks</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="3">Terrapins</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="4">Barracudas</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="5">Dolphins</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="6">Orcas</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="7">Manatees</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="8">Swordfish</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="9">Huckleberrys</a></th>
+                    </tr>
+                    <tr>
+                        <th><a asp-controller="Home" asp-action="Index" asp-route-teamID="10">MintJuleps</a></th>
+                    </tr>
+                    <tr>
+                        <th><a class="btn btn-primary" asp-controller="Home" asp-action="Index" asp-route-teamID="">Home</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col">
+            <table class="table table-sm table-striped table-bordered">
+
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-right">Team Name</th>
+                        <th colspan="5" class="text-center">Bowler Table</th>
+                        <th colspan="2" class="text-left"><a asp-controller="Home" asp-action="Add"> Add Bowler</a></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Middle Initial</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                        <th>Phone Number</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+
+
+                    @foreach (var b in Model)
+                    {
+                        <tr>
+
+                            <td>@b.BowlerFirstName</td>
+                            <td>@b.BowlerMiddleInit</td>
+                            <td>@b.BowlerLastName</td>
+                            <td>@b.BowlerAddress</td>
+                            <td>@b.BowlerCity</td>
+                            <td>@b.BowlerState</td>
+                            <td>@b.BowlerZip</td>
+                            <td>@b.BowlerPhoneNumber</td>
+                            <td>
+                                <a asp-controller="Home" asp-action="Edit" asp-route-bowlerID="@b.BowlerID">Edit </a>
+                                <a asp-controller="Home" asp-action="Delete" asp-route-bowlerID="@b.BowlerID"> Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
